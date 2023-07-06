@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import  LoginForm from "./pages/LoginForm"
+import Pets from "./pages/Pets"
+import Profile from "./pages/Profile"
+import NoPage from "./pages/NoPage"
 
-function App() {
+// Will have to use Profile Ids and Pets Ids in profile and pet Ids to deplay pets in Pets
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <BrowserRouter>
+      <Routes>
+        <Route index element ={<LoginForm />} />
+        <Route path="/home" element={<LoginForm />} />
+        <Route path ="/profile" element={<Profile />} /> 
+        <Route path ="/pets" element={<Pets />} />
+        <Route path ="*" element={<NoPage />} />
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
 
-export default App;
+
